@@ -1,10 +1,48 @@
-<div class="grid grid-cols-4 grid-rows-4 gap-5 m-4">
-  
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+<main class="flex flex-col gap-3 m-5 ">
+  <div class="flex justify-between ">
+    <h1 class=""> All Employees </h1>
+    <button class="bg-green-700 p-2 border"> Add Employee</button>
+  </div>
+  <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+      <table class="w-full text-sm text-left rtl:text-right text-body">
+          <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+              <tr>
+                  <th scope="col" class="px-6 py-3 font-medium text-center">
+                      Id
+                  </th>
+                  <th scope="col" class="px-6 py-3 font-medium text-center">
+                      Name
+                  </th>
+                  <th scope="col" class="px-6 py-3 font-medium">
+                      Department
+                  </th>
+                  <th scope="col" class="px-6 py-3 font-medium text-center">
+                      Age
+                  </th>
+                  <th scope="col" class="px-6 py-3 font-medium">
+                      is married
+                  </th>
+                  <th scope="col" class="px-6 py-3 font-medium">
+                      Work Now
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
 
+            @for (employee of employees; track employee.id) {
+              <app-card
+                [id]="employee.id"
+                [name]="employee.name"
+                [age]="employee.age"
+                [department]="employee.department"
+                [isMar]="employee.isMar"
+                [workNow]="employee.workNow"
+              ></app-card>
+              
+            }
+              
+          </tbody>
+      </table>
+  </div>
+</main>
 
-  
-</div>
