@@ -1,48 +1,39 @@
-<main class="flex flex-col gap-3 m-5 ">
-  <div class="flex justify-between ">
-    <h1 class=""> All Employees </h1>
-    <button class="bg-green-700 p-2 border"> Add Employee</button>
-  </div>
-  <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-      <table class="w-full text-sm text-left rtl:text-right text-body">
-          <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
-              <tr>
-                  <th scope="col" class="px-6 py-3 font-medium text-center">
-                      Id
-                  </th>
-                  <th scope="col" class="px-6 py-3 font-medium text-center">
-                      Name
-                  </th>
-                  <th scope="col" class="px-6 py-3 font-medium">
-                      Department
-                  </th>
-                  <th scope="col" class="px-6 py-3 font-medium text-center">
-                      Age
-                  </th>
-                  <th scope="col" class="px-6 py-3 font-medium">
-                      is married
-                  </th>
-                  <th scope="col" class="px-6 py-3 font-medium">
-                      Work Now
-                  </th>
-              </tr>
-          </thead>
-          <tbody>
+<div class="max-w-5xl mx-auto mt-10  rounded-lg overflow-hidden">
 
-            @for (employee of employees; track employee.id) {
-              <app-card
-                [id]="employee.id"
-                [name]="employee.name"
-                [age]="employee.age"
-                [department]="employee.department"
-                [isMar]="employee.isMar"
-                [workNow]="employee.workNow"
-              ></app-card>
-              
+    <div class="flex justify-between my-5">
+        <h1 class="text-2xl font-bold">All Employees</h1>
+        <button class="bg-green-500 text-gray-100 p-2 rounded cursor-pointer">Add Employee</button>
+    </div>
+    
+    <table class="w-full text-sm text-left shadow-lg">
+        <thead class="bg-gray-900 text-white uppercase">
+            <tr>
+                <th class="px-6 py-3 text-center">Employee ID</th>
+                <th class="px-6 py-3 text-center">Full Name</th>
+                <th class="px-6 py-3 text-center">Department</th>
+                <th class="px-6 py-3 text-center">Age</th>
+                <th class="px-6 py-3 text-center">Is Mar</th>
+                <th class="px-6 py-3 text-center">Work Now</th>
+                <th class="px-6 py-3 text-center"></th>
+            </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-200 bg-white">
+
+            @for(employee of employees; track employee.id) {
+                <app-card
+                    [id]="employee.id"
+                    [name]="employee.name"
+                    [department]="employee.department"
+                    [age]="employee.age"
+                    [isMar]="employee.isMar"
+                    [workNow]="employee.workNow"
+                >
+
+                </app-card>
             }
-              
-          </tbody>
-      </table>
-  </div>
-</main>
 
+        </tbody>
+    </table>
+
+</div>
